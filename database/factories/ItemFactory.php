@@ -22,7 +22,7 @@ class ItemFactory extends Factory
         return [
             "sku" => $sku,
             "name" => $name,
-            "stock" => fake()->numberBetween(0, 100)
+            "stock" => fake()->numberBetween(0, 20)
         ];
     }
 }

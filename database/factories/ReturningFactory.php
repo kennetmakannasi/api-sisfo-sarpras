@@ -19,7 +19,7 @@ class ReturningFactory extends Factory
     {
         return [
             "borrow_id" => Borrowing::query()->first()->id,
-            "returned_quantity" => fake()->numberBetween(1, 100)
+            "returned_quantity" => fake()->numberBetween(1, 20)
         ];
     }
 }

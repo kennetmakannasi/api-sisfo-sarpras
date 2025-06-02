@@ -21,7 +21,7 @@ class BorrowingFactory extends Factory
         return [
             "item_id" => Item::query()->inRandomOrder()->first()->id,
             "user_id" => User::query()->inRandomOrder()->first()->id,
-            "quantity" => fake()->numberBetween(1, 100)
+            "quantity" => fake()->numberBetween(1, 20)
         ];
     }
 }

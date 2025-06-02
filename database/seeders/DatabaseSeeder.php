@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
 
        User::factory(10)->create();
        Category::factory(20)->create();
-       Item::factory(20)->create();
-       ItemCategory::factory(20)->create();
+       Item::factory(30)->create();
+       ItemCategory::factory(15)->create();
        Borrowing::factory(50)->create();
 
         Returning::query()->delete();
