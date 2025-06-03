@@ -10,8 +10,6 @@ Route::prefix("auth")->group(function () {
    Route::get("self", [\App\Http\Controllers\authController::class, "self"])->middleware("need-token");
 });
 
-Route::get("dl", [\App\Http\Controllers\TestController::class, "exportSimpleData"]);
-
 Route::middleware("need-token")->group(function () {
     Route::middleware("admin-only")->group(function(){
         Route::prefix("admin")->group(function () {
