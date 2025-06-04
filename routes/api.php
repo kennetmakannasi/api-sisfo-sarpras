@@ -26,7 +26,7 @@ Route::middleware("need-token")->group(function () {
             Route::apiResource("categories", \App\Http\Controllers\CategoryController::class);
 
             Route::apiResource("items", \App\Http\Controllers\ItemController::class);
-            Route::post("items/{sku}/change-image", [\App\Http\Controllers\ItemController::class, "changeImage"]);
+            Route::post("items/{sku}/update-data", [\App\Http\Controllers\ItemController::class, "updateItemData"]);
 
             Route::apiResource("borrows", \App\Http\Controllers\BorrowingController::class)->only(["index","show"]);
             Route::apiResource("returns", \App\Http\Controllers\ReturningController::class)->only(["index","show"]);

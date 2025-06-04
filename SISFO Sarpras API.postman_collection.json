@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "900196dc-b94c-463f-a1a2-4593ef309610",
-		"name": "MVP-Sarpras",
+		"_postman_id": "cce2d294-f7fc-4e1a-a71a-a2f6116c24be",
+		"name": "SISFO Sarpras API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "30402736"
+		"_exporter_id": "40893865"
 	},
 	"item": [
 		{
@@ -59,6 +59,14 @@
 						"url": "http://127.0.0.1:8000/api/auth/logout"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -70,6 +78,119 @@
 					"item": [
 						{
 							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/admin/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"alat alat pplg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/admin/categories/alat-alat-pplg"
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"peralatan-pplg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/categories/alat-alat-pplg"
+							},
+							"response": []
+						},
+						{
+							"name": "Destroy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/admin/categories/peralatan-pplg"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://127.0.0.1:8000/api/admin/categories"
+							},
+							"response": []
+						},
+						{
+							"name": "Index Copy",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -222,31 +343,6 @@
 						},
 						{
 							"name": "Update",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "3|flw3QPjxfEtgp6QqbwuLidX0Sh7YXydq2MnspPKA38a43771"
-									}
-								},
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/C:/Users/ASUS/Pictures/WhatsApp Image 2024-07-23 at 21.14.38_a0ffec5c.jpg"
-										}
-									]
-								},
-								"url": "http://127.0.0.1:8000/api/admin/items/kmptr-nms"
-							},
-							"response": []
-						},
-						{
-							"name": "Change image",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -504,9 +600,17 @@
 								"url": "http://127.0.0.1:8000/api/user/borrow-history"
 							},
 							"response": []
-						},
+						}
+					]
+				},
+				{
+					"name": "Items",
+					"item": [
 						{
-							"name": "Return history",
+							"name": "item list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -514,7 +618,7 @@
 										"token": "4|cmg3oqYp9GUPU0K71O8h4oxDPoQQUkaiX4QEMpSa7df2264a"
 									}
 								},
-								"method": "POST",
+								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
@@ -525,11 +629,114 @@
 										}
 									}
 								},
-								"url": "http://127.0.0.1:8000/api/user/borrow-request"
+								"url": "http://127.0.0.1:8000/api/user/borrow-history"
+							},
+							"response": []
+						},
+						{
+							"name": "item by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "4|cmg3oqYp9GUPU0K71O8h4oxDPoQQUkaiX4QEMpSa7df2264a"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sku\": \"q\",\r\n    \"quantity\": 12\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/user/borrow-history"
+							},
+							"response": []
+						},
+						{
+							"name": "categories",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "4|cmg3oqYp9GUPU0K71O8h4oxDPoQQUkaiX4QEMpSa7df2264a"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sku\": \"q\",\r\n    \"quantity\": 12\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/user/borrow-history"
 							},
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Items Copy",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "borrowing",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "category item count",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "borrowing last 5 weeks",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "returning",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "dash index",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		}

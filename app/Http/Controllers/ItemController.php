@@ -126,7 +126,7 @@ class ItemController extends Controller
         return ApiResponse::send(200, "Item removed");
     }
 
-    public function changeImage(Request $request, string $sku)
+    public function updateItemData(Request $request, string $sku)
 {
     $item = Item::query()->where("sku", $sku)->first();
 
