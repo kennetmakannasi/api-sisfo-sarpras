@@ -19,6 +19,7 @@ Route::middleware("need-token")->group(function () {
                 Route::get("returning",[\App\Http\Controllers\DashboardController::class, "returning"]);
                 Route::get("borrowingByTime",[\App\Http\Controllers\DashboardController::class, "borrowingByTime"]);
                 Route::get("categoryItemCount",[\App\Http\Controllers\DashboardController::class, "CategoryItemCount"]);
+                Route::get("overdue",[\App\Http\Controllers\DashboardController::class, "overdue"]);
             });
             // Route::get("dl", [\App\Http\Controllers\TestController::class, "exportSimpleData"]);
 

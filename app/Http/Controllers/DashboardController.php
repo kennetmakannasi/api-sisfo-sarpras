@@ -107,4 +107,17 @@ class DashboardController extends Controller
                 Returning::where('handled_by', !null)->orderBy('created_at','desc')->with(['borrowing.user','borrowing.item','borrowing'])->get()
         ]);
     }
+
+        public function overdue()
+        {
+            $today = Carbon::now();
+            $query = Borrowing::with(["user","item"])->where('status', ['approved']);
+            $data = $query->whereDate('due_date', '<' , $today)->get();
+            return ApiResponse::send(200, "Data retrived", null,[
+                'dueStats'=> [
+                    'overdueCount'=> $data->count()
+                ],
+                'overdueBorrows'=> $data
+            ] );
+        }
 }
