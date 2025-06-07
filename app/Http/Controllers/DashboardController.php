@@ -49,7 +49,7 @@ class DashboardController extends Controller
                 'returned' => Borrowing::where('status', 'returned')->count(),
             ],
             'recentborrows' => 
-                Borrowing::orderBy('created_at','desc')->with(["user", "item"])->get()
+                Borrowing::orderBy('created_at','desc')->with(["user", "item"])->get()->slice(0,5)
         ]);
     }
 
@@ -104,7 +104,7 @@ class DashboardController extends Controller
                 'pending' => Returning::where('handled_by', null)->count(),
             ],
             'recentreturnings' => 
-                Returning::where('handled_by', !null)->orderBy('created_at','desc')->with(['borrowing.user','borrowing.item','borrowing'])->get()
+                Returning::where('handled_by', !null)->orderBy('created_at','desc')->with(['borrowing.user','borrowing.item','borrowing'])->get()->slice(0,5)
         ]);
     }
 
@@ -112,12 +112,12 @@ class DashboardController extends Controller
         {
             $today = Carbon::now();
             $query = Borrowing::with(["user","item"])->where('status', ['approved']);
-            $data = $query->whereDate('due_date', '<' , $today)->get();
+            $data = $query->whereDate('due_date', '<' , $today)->orderBy('due_date', 'desc')->get();
             return ApiResponse::send(200, "Data retrived", null,[
                 'dueStats'=> [
                     'overdueCount'=> $data->count()
                 ],
-                'overdueBorrows'=> $data
+                'overdueBorrows'=> $data->slice(0,3)
             ] );
         }
 }
