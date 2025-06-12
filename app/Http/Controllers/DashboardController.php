@@ -104,7 +104,7 @@ class DashboardController extends Controller
                 'pending' => Returning::where('handled_by', null)->count(),
             ],
             'recentreturnings' => 
-                Returning::where('handled_by', !null)->orderBy('created_at','desc')->with(['borrowing.user','borrowing.item','borrowing'])->get()->slice(0,5)
+                Returning::whereNotNull('handled_by')->orderBy('created_at','desc')->with(['borrowing.user','borrowing.item','borrowing'])->get()->slice(0,5)
         ]);
     }
 
