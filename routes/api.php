@@ -37,6 +37,14 @@ Route::middleware("need-token")->group(function () {
 
             Route::patch("returns/{id}/approve", [\App\Http\Controllers\ReturningController::class, "approve"]);
             Route::patch("returns/{id}/reject", [\App\Http\Controllers\ReturningController::class, "reject"]);
+
+            Route::prefix("download")->group(function (){
+                Route::get('/users', [\App\Http\Controllers\ExcelController::class, 'exportUsers']);    
+                Route::get('/items', [\App\Http\Controllers\ExcelController::class, 'exportItems']);    
+                Route::get('/categories', [\App\Http\Controllers\ExcelController::class, 'exportCategories']); 
+                Route::get('/borrows', [\App\Http\Controllers\ExcelController::class, 'exportBorrows']); 
+                Route::get('/returns', [\App\Http\Controllers\ExcelController::class, 'exportReturns']); 
+            });
         });
     });
     
