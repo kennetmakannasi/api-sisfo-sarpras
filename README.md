@@ -1,4 +1,4 @@
-#Setup API
+# Setup API
 
 Make env, fill with your local database info
 
@@ -33,4 +33,6 @@ Run the API
 ```terminal
 php artisan serve
 ```
+# Download the dashboard (if needed)
 
+https://github.com/kennetmakannasi/sisfo-sarpras-admin
